@@ -13,3 +13,59 @@ body {
     width: 80%;
     max-width: 800px;
 }
+
+/* Add your custom CSS styles for the video player here */
+video {
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the video controls */
+video::-webkit-media-controls {
+    display: none;
+}
+
+/* Create a custom play button */
+.video-container::before {
+    content: "\25B6"; /* Unicode for the "play" symbol */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3em;
+    color: white;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Hide the play button when the video is played */
+.video-container video[controls] {
+    background: transparent;
+    outline: none;
+    border: none;
+}
+
+.video-container video[controls]::-webkit-media-controls-start-playback-button {
+    display: none;
+}
+
+/* Style the video progress bar */
+video::-webkit-media-controls-progress-bar {
+    background-color: transparent;
+}
+
+video::-webkit-media-controls-slider-container {
+    margin-top: 10px;
+}
+
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display {
+    color: white;
+    font-size: 0.9em;
+}
+
+/* Style the fullscreen button */
+video::-webkit-media-controls-fullscreen-button {
+    color: white;
+    font-size: 1.2em;
+}
